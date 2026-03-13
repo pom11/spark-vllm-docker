@@ -586,7 +586,8 @@ patch_script_in_container() {
     [[ "$node_rank" -gt 0 ]] && extra="$extra --headless"
 
     local patch="sed -i '/--distributed-executor-backend/d' /workspace/exec-script.sh && \
-        echo '$extra' >> /workspace/exec-script.sh"
+        echo '$extra' >> /workspace/exec-script.sh && \
+        chmod +x /workspace/exec-script.sh"
 
     if [[ "$is_local" == "true" ]]; then
         docker exec "$container" bash -c "$patch"
