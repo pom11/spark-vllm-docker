@@ -165,6 +165,11 @@ Default is `29501`.
 ./run-recipe.sh qwen3.5-122b-fp8 --no-ray --master-port 29501
 ```
 
+#### `--network` Parameter in Build Arguments
+
+Added `--network <name>` to `build-and-copy.sh` to allow using host networking during builds. 
+Thanks @apairmont for the PR.
+
 ### 2026-03-17
 
 #### EXPERIMENTAL Intel/Qwen3.5-397B-A17B-int4-AutoRound Recipe

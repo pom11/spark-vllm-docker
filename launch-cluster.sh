@@ -750,7 +750,7 @@ _exec_on_head() {
         echo "Command dispatched in background (Daemon mode). Container: $CONTAINER_NAME"
     else
         if [ -t 0 ]; then DOCKER_EXEC_FLAGS="-it"; else DOCKER_EXEC_FLAGS="-i"; fi
-        docker exec $DOCKER_EXEC_FLAGS "$CONTAINER_NAME" $cmd
+        docker exec $DOCKER_EXEC_FLAGS "$CONTAINER_NAME" bash -c "$cmd"
     fi
 }
 
@@ -792,7 +792,7 @@ exec_no_ray_cluster() {
         echo "Command dispatched in background (Daemon mode). Container: $CONTAINER_NAME"
     else
         if [ -t 0 ]; then DOCKER_EXEC_FLAGS="-it"; else DOCKER_EXEC_FLAGS="-i"; fi
-        docker exec $DOCKER_EXEC_FLAGS "$CONTAINER_NAME" $head_cmd
+        docker exec $DOCKER_EXEC_FLAGS "$CONTAINER_NAME" bash -c "$head_cmd"
     fi
 }
 
